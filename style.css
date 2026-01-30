@@ -1,0 +1,123 @@
+/* ===== FULL THEME RESET ===== */
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* ===== PAGE BACKGROUND ===== */
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #cdb4db, #b48ead);
+}
+
+/* ===== MAIN GAME PANEL ===== */
+#gameContainer{
+    background: #8d6a9f;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+/* ===== TITLE ===== */
+h1{
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* ===== BOARD GRID ===== */
+#cellContainer{
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3, 120px);
+    gap: 0;
+    margin: 20px auto;
+}
+
+/* ===== CELLS ===== */
+.cell{
+    border: 5px solid #f6d1a8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+    font-weight: bold;
+    cursor: pointer;
+    background: rgba(255,255,255,0.05);
+    transition: background 0.2s;
+}
+
+.cell:hover{
+    background: rgba(255,255,255,0.12);
+}
+
+/* ===== X & O COLORS ===== */
+.cell.X{
+    color: #ffd6a5;
+}
+
+.cell.O{
+    color: white;
+}
+
+/* ===== STATUS TEXT ===== */
+#statusText{
+    color: white;
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+/* ===== BUTTON STYLE ===== */
+button{
+    margin-top: 15px;
+    padding: 10px 22px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    background: #f6d1a8;
+    color: #6d4c6d;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover{
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* ===== MENU SCREEN STYLE ===== */
+#menu{
+    text-align: center;
+}
+
+#menu h1{
+    color: white;
+    margin-bottom: 20px;
+}
+
+#menu button{
+    display: block;
+    margin: 12px auto;
+}
+/* ===== TURN COLOR EFFECT ===== */
+
+.turnX #gameContainer{
+    background: #9c7bb0;
+    box-shadow: 0 0 30px rgba(255, 190, 140, 0.6);
+}
+
+.turnO #gameContainer{
+    background: #6f86a6;
+    box-shadow: 0 0 30px rgba(180, 210, 255, 0.6);
+}
+
+/* Smooth transition */
+#gameContainer{
+    transition: all 0.4s ease;
+}
