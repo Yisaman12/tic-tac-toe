@@ -16,7 +16,7 @@ let option = ["", "", "", "", "", "", "", "", ""];
 let currentPlayer = "X";
 let running = false;
 let gameMode = "";   // pvp or bot
-let botDifficulty = "hard"; // easy | medium | hard
+let botDifficulty = "medium"; // easy | medium | hard
 
 initialzeGame();
 function initialzeGame(){
