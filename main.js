@@ -168,25 +168,33 @@ function botMove(){
     checkWinner();
 }
 function getBestMove(){
-    // Try win
-    for(let i=0;i<winConditions.length;i++){
-        let [a,b,c] = winConditions[i];
-        let line = [option[a], option[b], option[c]];
 
+    //  Try to WIN
+    for(let [a,b,c] of winConditions){
+        let line = [option[a], option[b], option[c]];
         if(line.filter(v=>v==="O").length===2 && line.includes("")){
             return [a,b,c][line.indexOf("")];
         }
     }
 
-    // Block player
-    for(let i=0;i<winConditions.length;i++){
-        let [a,b,c] = winConditions[i];
+    //  BLOCK player
+    for(let [a,b,c] of winConditions){
         let line = [option[a], option[b], option[c]];
-
         if(line.filter(v=>v==="X").length===2 && line.includes("")){
             return [a,b,c][line.indexOf("")];
         }
     }
+
+    //  TAKE CENTER
+    if(option[4] === "") return 4;
+
+    //  TAKE A CORNER
+    let corners = [0,2,6,8].filter(i => option[i] === "");
+    if(corners.length) return corners[Math.floor(Math.random()*corners.length)];
+
+    //  TAKE A SIDE
+    let sides = [1,3,5,7].filter(i => option[i] === "");
+    if(sides.length) return sides[Math.floor(Math.random()*sides.length)];
 
     return null;
 }
